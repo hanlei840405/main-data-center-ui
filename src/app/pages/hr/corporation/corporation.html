@@ -1,0 +1,80 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-class="with-scroll">
+        <div class="horizontal-scroll">
+          <div class="select-page-size-wrap col-md-1" style="padding-left:0px;">
+            <label>
+              <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+                      ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+              </select>
+            </label>
+          </div>
+          <button type="button" class="btn btn-primary pull-right col-md-1" data-toggle="modal" ng-click="open('app/pages/hr/corporation/add.html', 'lg')">新增</button>
+          <table class="table table-bordered table-hover" st-table="corporations" st-pipe="pipeFunction">
+            <thead>
+              <tr class="sortable ">
+                <th></th>
+                <th>
+                  <label class="custom-checkbox">
+                    <input type="checkbox" ng-model="checkedAll" ng-checked="headCheck" ng-click="checkMe($event)">
+                    <span></span>
+                  </label>
+                </th>
+                <th st-sort="category"><b>类别</b></th>
+                <th st-sort="name"><b>名称</b></th>
+                <th st-sort="tel"><b>电话</b></th>
+                <th st-sort="contact"><b>联系人</b></th>
+                <th st-sort="contactTelephone"><b>联系人电话</b></th>
+                <th st-sort="legalPerson"><b>法人</b></th>
+                <th st-sort="legalPersonTelephone"><b>法人电话</b></th>
+                <th st-sort="address"><b>地址</b></th>
+                <th st-sort="level"><b>级别</b></th>
+                <th st-sort="status"><b>状态</b></th>
+                <th><b>操作</b></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in corporations">
+                <td>{{$index + 1}}</td>
+                <td>
+                  <label class="custom-checkbox">
+                    <input type="checkbox" ng-checked="checkedAll" ng-model="corporations[$index].checked" ng-click="checkMe($event, $index)" ng-value="item.id">
+                    <span></span>
+                  </label>
+                </td>
+                <td>{{item.category}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.tel}}</td>
+                <td>{{item.contact}}</td>
+                <td>{{item.contactTelephone}}</td>
+                <td>{{item.legalPerson}}</td>
+                <td>{{item.legalPersonTelephone}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.level}}</td>
+                <td>{{item.status}}</td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-warning">
+                  <i class="glyphicon glyphicon-edit">
+                  </i>
+                </button>
+                  <button type="button" class="btn btn-sm btn-danger">
+                  <i class="glyphicon glyphicon-remove">
+                  </i>
+                </button>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="13">
+                  <div  st-items-by-page="20" st-pagination="" class=" pull-right"></div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
