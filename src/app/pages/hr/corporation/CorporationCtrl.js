@@ -10,7 +10,7 @@
 
   /** @ngInject */
   function CorporationCtrl($scope, $uibModal, CorporationService) {
-	$scope.smartTablePageSize = 10;
+    $scope.smartTablePageSize = 10;
 
     $scope.pipeFunction = function(tableState){
       var pagination = tableState.pagination;
@@ -20,8 +20,8 @@
       var promise = CorporationService.corporations(start, number, tableState.search.predicateObject);
       promise.then(function(data){
         $scope.corporations = data.content;
-      tableState.pagination.numberOfPages = 2;
-      }, function error(msg) {
+        tableState.pagination.numberOfPages = 2;
+        }, function error(msg) {
         console.error(msg);
       });
   
@@ -47,6 +47,7 @@
       $uibModal.open({
         animation: true,
         templateUrl: page,
+        controller: 'CorporationAddCtrl',
         size: size,
         resolve: {
           items: function () {
@@ -55,6 +56,7 @@
         }
       });
     };
+
   }
 
 })();

@@ -1,16 +1,141 @@
-<div class="modal-content">
+<form class="modal-content">
   <div class="modal-header">
     <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
       <em class="ion-ios-close-empty sn-link-close"></em>
     </button>
-    <h4 class="modal-title">Modal title</h4>
+    <h4 class="modal-title" id="myModalLabel">企业信息</h4>
   </div>
   <div class="modal-body">
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-    dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-    suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.category.$invalid }">
+          <label for="individual">类别</label>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="radio-inline custom-radio nowrap">
+                <input type="radio" ng-model="corporationForm.category" id="individual" value="option1">
+                <span>个人店铺</span>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="radio-inline custom-radio nowrap">
+                <input type="radio" ng-model="corporationForm.category" id="enterprise" value="option2">
+                <span>企业店铺</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.province.$invalid && corporationForm.city.$invalid }">
+          <label for="inputLastName">省市</label>
+            <select class="form-control selectpicker with-search" data-live-search="true" title="省/直辖市/自治区" selectpicker ng-model="province">
+            <option ng-repeat="item in provinces">{{item.name}}</option>
+            </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputFirstName">Email</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputWebsite">Website</label>
+          <input type="text" class="form-control" id="inputWebsite" placeholder="Website">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputFirstName">First Name</label>
+          <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputLastName">Last Name</label>
+          <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputFirstName">Email</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputWebsite">Website</label>
+          <input type="text" class="form-control" id="inputWebsite" placeholder="Website">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputFirstName">First Name</label>
+          <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputLastName">Last Name</label>
+          <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputFirstName">Email</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+          <p ng-show="corporationForm.name.$invalid && !corporationForm.name.$pristine" class="help-block">You name is required.</p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputWebsite">Website</label>
+          <input type="text" class="form-control" id="inputWebsite" placeholder="Website">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputFirstName">First Name</label>
+          <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputLastName">Last Name</label>
+          <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputFirstName">Email</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : corporationForm.name.$invalid && !corporationForm.name.$pristine }">
+          <label for="inputWebsite">Website</label>
+          <input type="text" class="form-control" id="inputWebsite" placeholder="Website">
+        </div>
+      </div>
+    </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-primary" ng-click="$dismiss()">Save changes</button>
   </div>
-</div>
+</form>
